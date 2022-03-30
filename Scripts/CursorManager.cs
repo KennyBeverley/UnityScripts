@@ -111,6 +111,4 @@ public class CursorObjects
     public GameObject gameObject;
     public WaysToFlip howToFlip;
     public bool rotateTowardsCursor;
-    //public bool facesCursorOnX;
-    //public bool facesCursorOnY;
 }

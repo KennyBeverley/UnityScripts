@@ -45,7 +45,6 @@ public class Controller2D : MonoBehaviour
 
         if (Mathf.Abs(horizontal) > 0 || Mathf.Abs(vertical) > 0)
         {
-            Debug.Log(horizontal);
             transform.position += new Vector3(horizontal * horizontalSpeed * Time.deltaTime, vertical * verticalSpeed * Time.deltaTime,0);
         }
     }

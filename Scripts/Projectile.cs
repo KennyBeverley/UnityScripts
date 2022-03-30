@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private LayerMask impactLayers;
     public float speed;
+    public float damage;
     private Vector3 dir;
     private Vector3 velocity;
 
@@ -30,9 +31,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collison with " + collision.gameObject.layer + " compared to " + impactLayers + " or " + impactLayers.value);        
-        if ((impactLayers.value &(1 << collision.gameObject.layer)) > 0)
-        {
+        if ((impactLayers.value & (1 << collision.gameObject.layer)) > 0)
+        {            
+            if(collision.gameObject.GetComponent<ImpactQueue>() != null)
+            {
+                collision.gameObject.GetComponent<ImpactQueue>().QueueImpact(damage);
+            }
             Destroy(gameObject);
         }
     }
