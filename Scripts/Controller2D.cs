@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 enum GameType { SideScroller, Topdown}
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Controller2D : MonoBehaviour
 {
+    
     [SerializeField] private GameType type;
     [SerializeField]private bool hasGravity;
     [SerializeField]private float gravityValue;
@@ -26,6 +29,7 @@ public class Controller2D : MonoBehaviour
                 canJump = false;
                 break;
         }
+
     }
 
     // Update is called once per frame
